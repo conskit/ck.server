@@ -18,11 +18,13 @@
 
 (defservice
   server CKServer
-  [[:ConfigService get-in-config]]
+  [[:ConfigService get-in-config]
+   [:CKRouter make-ring-handler]]
   (start [this context]
-         (let [options (get-in-config [:server])]
+         (let [options (get-in-config [:server])
+               cont (update @container :handler #(make-ring-handler %))]
            (log/info (str "Starting Web server on port " (:port options)))
-           (assoc context :stopper (start-server* (merge @container {:options options})))))
+           (assoc context :stopper (start-server* (merge cont {:options options})))))
   (stop [this context]
         (log/info "Stopping Web server")
         (let [stop (get context :stopper)]
