@@ -1,4 +1,4 @@
-(defproject ck.server "1.0.0"
+(defproject ck.server "1.0.1"
   :description "Server module for Conskit"
   :url "https://github.com/conskit/ck.server"
   :license {:name "Apache License, Version 2.0"

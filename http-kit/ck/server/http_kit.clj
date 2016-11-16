@@ -4,4 +4,6 @@
 
 (defmethod start-server* :http-kit
   [{:keys [handler options]}]
-  (run-server handler options))
+  (run-server handler (if (string? (:port options))
+                        (assoc options :port (Integer/parseInt (:port options)))
+                        options)))
