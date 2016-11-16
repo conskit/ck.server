@@ -1,4 +1,4 @@
-(defproject ck.server "1.0.0-rc1"
+(defproject ck.server "1.0.0"
   :description "Server module for Conskit"
   :url "https://github.com/conskit/ck.server"
   :license {:name "Apache License, Version 2.0"
@@ -8,7 +8,8 @@
   :profiles {:dev {:source-paths ["dev" "http-kit"]
                    :dependencies [[puppetlabs/trapperkeeper "1.4.1" :classifier "test"]
                                   [puppetlabs/kitchensink "1.3.1" :classifier "test" :scope "test"]
-                                  [ck.routing "0.1.0-SNAPSHOT" :classifier "bidi"]
+                                  [ck.routing "1.0.0-rc1" :classifier "bidi"]
+                                  [ck.config "0.1.0"]
                                   [bidi "1.25.1"]
                                   [midje "1.8.3"]
                                   [http-kit "2.1.18"]]

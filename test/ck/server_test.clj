@@ -9,7 +9,8 @@
             [conskit.macros :refer [defcontroller action]]
             [conskit.core :as ck]
             [ck.server.http-kit]
-            [ck.routing.bidi])
+            [ck.routing.bidi]
+            [ck.config :refer [config-service]])
   (:use midje.sweet))
 
 
@@ -52,7 +53,7 @@
 
 (with-app-with-cli-data
   app
-  [ck/registry router test-service server]
+  [ck/registry router test-service server config-service]
   {:config "./dev-resources/test-config.conf"}
   (let [serv (app/get-service app :ResultService)
         response (get-result serv)]

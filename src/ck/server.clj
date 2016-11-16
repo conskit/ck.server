@@ -18,7 +18,7 @@
 
 (defservice
   server CKServer
-  [[:ConfigService get-in-config]
+  [[:EnvironmentConfigService get-in-config]
    [:CKRouter make-ring-handler]]
   (start [this context]
          (let [options (get-in-config [:server])
